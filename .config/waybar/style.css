@@ -1,0 +1,50 @@
+@define-color main rgba(0,0,0,0.5);
+@define-color text white;
+
+
+* {
+	padding: 0px;
+	margin: 0px;
+	border:none;
+
+}
+
+
+
+window#waybar {
+	font-family: "Inconsolata Nerd Font", sans-serif;
+	background-color: @main;
+	color: @text;
+}
+
+
+#workspaces button {
+	color: white;
+	min-width: 30px;
+	border-radius: 0px;
+	transition: 0.2s;
+	border-bottom-width:0px;	
+}
+
+#workspaces button.focused {
+	border-bottom-style: solid;
+	border-bottom-width: 3px;
+	padding-top: 3px
+}
+
+#workspaces button:hover {
+	/* disable annoying default hover properties */
+	box-shadow: inherit;
+	text-shadow: inherit;
+	background: white;
+	border: white;
+	padding: 0 0px;
+	/* actual shit i want */
+	color: black;
+	background-color: white;
+}
+
+#wireplumber {
+	margin-right: 10px;
+}
+

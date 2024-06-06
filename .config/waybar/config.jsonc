@@ -1,0 +1,46 @@
+{
+	"position": "top",
+	"spacing": 10,
+	"height": 30,
+	"modules-left": [
+		"sway/workspaces"
+	],
+	"modules-center" : [
+		"mpd"
+	],
+	"modules-right": [
+		"clock",
+		"battery",
+		"wireplumber",
+		"tray"
+	],
+	"clock": {
+		"format": "  {:%I:%M %p}",
+		"tooltip-format": "{:%A%n %b %m, %Y}",
+		"timezones" : [
+			"America/New_York",
+			"Europe/Warsaw"
+		],
+		"actions" : {
+			"on-click":"tz_up" //switch timezones
+		} 	
+	},
+	"wireplumber": {
+		"format": "{icon} {volume}%",
+		"format-muted": "󰝟 {volume}%",
+		"on-click": "pamixer -t",
+		"on-click-right": "pavucontrol",
+		"format-icons": ["󰕿","󰖀","󰕾"]
+	},
+	"battery": {
+		"bat": "BAT0",
+		"format":"{icon} {capacity}%",
+		"format-format":"{timeTo}",
+		"format-icons": ["󰂃","󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"],
+		"states": {
+			"plugged-in": 100,
+			"warning": 20,
+			"critical": 10
+		}
+	}
+}
