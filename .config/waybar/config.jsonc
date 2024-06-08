@@ -9,6 +9,7 @@
 		"mpd"
 	],
 	"modules-right": [
+		"image",
 		"clock",
 		"battery",
 		"wireplumber",
@@ -42,5 +43,9 @@
 			"warning": 20,
 			"critical": 10
 		}
+	},
+	"image": {
+		"path": "~/Downloads/sprite/script-test/title000.png",
+		"size": 32
 	}
 }
