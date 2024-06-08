@@ -1,5 +1,4 @@
 #import env vars
-
 include /etc/sway/config.d/*
 
 # Disable window titlebars entirely
@@ -9,22 +8,24 @@ for_window [class="^.*"] border pixel 2
 gaps inner 10
 gaps outer 10
 
-#start mpd (too lazy to do this w systemd lol)
-exec mpd
-
-#start polybar
+#setup waybar
 exec waybar
-#start swaync
+#start dunst
 exec --no-startup-id swaync
 
-# disable trackpad if on T420
-# execxinput --disable "SynPS/2 Synaptics TouchPad"
-
+#make certain windows floating
+for_window [app_id="imv*"] floating enable
+for_window [instance="vlc"] floating enable
 #monitor setup
-
 output HDMI-A-1 pos 0 0 res 1920x1080
 output eDP-1 pos 1920 0 res 1920x1080
 focus output HDMI-A-1
+
+#screenshot
+bindsym Print exec grimshot copy area
+
+#set wallpaper
+output "*" bg ~/Pictures/xenia-wallpaper.jpg fill
 	
 # set mod key
 set $mod Mod1
@@ -153,8 +154,9 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
