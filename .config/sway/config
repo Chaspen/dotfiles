@@ -12,7 +12,11 @@ gaps outer 10
 exec waybar
 #start dunst
 exec --no-startup-id swaync
+#start kde connect
+exec kdeconnectd
 
+# set mod key
+set $mod Mod1
 #make certain windows floating
 for_window [app_id="imv*"] floating enable
 for_window [instance="vlc"] floating enable
@@ -23,14 +27,20 @@ focus output HDMI-A-1
 
 #screenshot
 bindsym Print exec grimshot copy area
+#scratchpad enable
+bindsym $mod+minus move scratchpad
+bindsym $mod+Shift+minus scratchpad show
+
+#change kb layour
+input type:keyboard {
+	xkb_layout us,pl
+	xkb_options grp:rctrl_toggle
+}
+
 
 #set wallpaper
 output "*" bg ~/Pictures/xenia-wallpaper.jpg fill
 	
-# set mod key
-set $mod Mod1
-
-
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:monospace 8
@@ -155,8 +165,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode

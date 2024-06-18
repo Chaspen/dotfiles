@@ -9,8 +9,6 @@
 
 }
 
-
-
 window#waybar {
 	font-family: "Inconsolata Nerd Font", sans-serif;
 	background-color: @main;
@@ -19,24 +17,29 @@ window#waybar {
 
 
 #workspaces button {
+	background-color: transparent;
+	background:transparent;	
 	color: white;
 	min-width: 30px;
 	border-radius: 0px;
 	transition: 0.2s;
-	border-bottom-width:0px;	
 }
 
 #workspaces button.focused {
+	border-top-width: 0;
 	border-bottom-style: solid;
 	border-bottom-width: 3px;
-	padding-top: 3px
+	border-top-width: 0px;
+	padding-top: 3px;
+	background: transparent;
+
 }
 
 #workspaces button:hover {
 	/* disable annoying default hover properties */
 	box-shadow: inherit;
 	text-shadow: inherit;
-	background: white;
+	background: inherit;
 	border: white;
 	padding: 0 0px;
 	/* actual shit i want */
